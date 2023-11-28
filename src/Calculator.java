@@ -9,15 +9,11 @@ public class Calculator {
     BinaryOperator<Integer> multiply = (x, y) -> x * y;
 
     BinaryOperator<Integer> divide = (x, y) -> {
-        try {
-            if (y == 0) {
-                throw new ArithmeticException("Ошибка: деление на ноль");
-            }
-            return x / y;
-        } catch (ArithmeticException e) {
-            System.out.println(e.getMessage());
+        if (y == 0) {
+            System.out.println("Ошибка: деление на ноль");
             return 0;
         }
+        return x / y;
     };
 
     UnaryOperator<Integer> pow = x -> x * x;
